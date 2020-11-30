@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Listagem</title>
+</h:head>
+<h:body>
+
+	<p:panel header="Todos as Sobremesas">
+		<p:link outcome="cadastro.xhtml" value="Voltar" />
+
+		<h:form>
+
+			<p:dataTable var="s" value="#{sobremesaBean.lista}">
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{s.nome}" />
+				</p:column>
+
+				<p:column headerText="Tipo">
+					<h:outputText value="#{s.tipo}" />
+				</p:column>
+
+				<p:column headerText="Preço">
+					<h:outputText value="#{s.preco}" />
+				</p:column>
+
+				<p:column>
+					<p:commandLink action="editar.xhtml">
+						<h:graphicImage value="edit.png"></h:graphicImage>
+						<f:setPropertyActionListener value="#{s}"
+							target="#{sobremesaBean.sobremesa}" />
+					</p:commandLink>
+				</p:column>
+
+				<p:column>
+					<p:commandLink action="#{sobremesaBean.excluir}" ajax="false">
+						<h:graphicImage value="delete.png"></h:graphicImage>
+						<f:setPropertyActionListener value="#{s}"
+							target="#{sobremesaBean.sobremesa}" />
+					</p:commandLink>
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+
+	</p:panel>
+</h:body>
+</html>

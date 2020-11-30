@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Página de cadastro</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="Página de cadastro">
+			<p:messages id="messages" showDetail="true" closable="true">
+				<p:autoUpdate />
+			</p:messages>
+			<div class="p-field p-grid">
+				<p:outputLabel for="nome" styleClass="p-col-fixed" style="width:100px"
+					value="Nome" />
+				<div class="p-col">
+					<p:inputText value="#{sobremesaBean.sobremesa.nome}" id="nome"/>
+				</div>
+			</div>
+			
+			<div class="p-field p-grid">
+				<p:outputLabel for="tipo" styleClass="p-col-fixed" style="width:100px"
+					value="Tipo" />
+				<div class="p-col">
+					<p:inputText value="#{sobremesaBean.sobremesa.tipo}" id="tipo"/>
+				</div>
+			</div>
+			
+			<div class="p-field p-grid">
+				<p:outputLabel for="preco" styleClass="p-col-fixed" style="width:100px"
+					value="Preço" />
+				<div class="p-col">
+					<p:inputText value="#{sobremesaBean.sobremesa.preco}" id="preco"/>
+				</div>
+			</div>
+
+			<p:commandButton value="Salvar" action="#{sobremesaBean.salvar}" />
+			<p:commandLink value="Listagem" action="listagem.xhtml" />
+		</p:panel>
+	</h:form>
+	
+</h:body>
+</html>
